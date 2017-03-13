@@ -60,6 +60,8 @@ $(document).ready(function() {
 
     }) // forEach
 
+
+
     toHTML += `</div>`
     toHTML += `<div id=cFormFooter> 
     <div id="cSubmit">Submit</div>
@@ -72,19 +74,28 @@ $(document).ready(function() {
 
     $('#cSubmit').hover(function() { 
 
-    $(this).css('cursor','pointer') 
-    $(this).css('transform','scale(1.1)') 
-    $(this).css('border','1px solid #000') 
-    $(this).css('box-shadow','0 0 15px #000') 
+      $(this).css('cursor','pointer') 
 
-  }, function() { 
+      $(this).css('border','1px solid #FFF') 
 
-     $(this).css('transform','scale(1)') 
+      $(this).css('box-shadow','0 0 15px #FFF') 
+
+    }, function() { 
+
      $(this).css('border','none') 
+
      $(this).css('box-shadow','0 0 0px #999') 
 
-  })
+    })
 
-  })
+
+    $('#cSubmit').on('click', function() { 
+
+      $('#cApp').append('<div id="cCover"></div><div id="cThank">Thank you!</div>')
+
+      
+    })
+
+  }) 
 
 })
