@@ -10,49 +10,46 @@ $(document).ready(function() {
   
     formData.forEach(function(fld) {
 
-      
+    
+      if (fld.type === "textarea") {
+        
+        toHTML += `<div class='cInpDiv'>`
 
-      if (fld.type === "text") {
-
-        
-        toHTML += `<div class='cInpDiv'>`
-        toHTML += ` <input class='cInp' type='${fld.type}' placeholder='${fld.label}' id='${fld.id}' /> `
-        toHTML += `<i class='fa ${fld.icon}' />`
-        toHTML += `</div>`
-        
-      } else if (fld.type === "email") {
-
-        
-        toHTML += `<div class='cInpDiv'>`
-        toHTML += ` <input class='cInp' type='${fld.type}' placeholder='${fld.label}' id='${fld.id}' /> `
-        toHTML += `<i class='fa ${fld.icon}' />`
-        toHTML += `</div>`
-        
-      } else if (fld.type === "tel") {
-        
-        toHTML += `<div class='cInpDiv'>`
-        toHTML += ` <input class='cInp' type='${fld.type}' placeholder='${fld.label}' id='${fld.id}' /> `
-        toHTML += `<i class='fa ${fld.icon}' />`
-        toHTML += `</div>`
-        
-      } else if (fld.type === "textarea") {
-        
-        toHTML += `<div class='cInpDiv'>`
         toHTML += ` <textarea class='cInp' type='${fld.type}' placeholder='${fld.label}' id='${fld.id}' /> `
+
         toHTML += `<i class='fa ${fld.icon}' />`
+
         toHTML += `</div>`
         
       } else if (fld.type === "select") {
         
         toHTML += `<div class='cInpDiv'>`
+
         toHTML += ` <select class='cInp' type='${fld.type}' placeholder='${fld.label}' id='${fld.id}'> `
+
         toHTML += `<option>Select Language...</option>`
+
         fld.options.forEach((opt) => {
+
           toHTML += `<option>${opt.label}</option>`
             
         })
+
         toHTML += `</select>`
+
         toHTML += `<i class='fa ${fld.icon}' />`
+
+        toHTML += `</div>`
+        
+      } else {
+
+        
+        toHTML += `<div class='cInpDiv'>`
+
+        toHTML += ` <input class='cInp' type='${fld.type}' placeholder='${fld.label}' id='${fld.id}' /> `
+
+        toHTML += `<i class='fa ${fld.icon}' />`
+
         toHTML += `</div>`
         
       }
@@ -63,15 +60,13 @@ $(document).ready(function() {
 
 
     toHTML += `</div>`
-    toHTML += `<div id=cFormFooter> 
-    <div id="cSubmit">Submit</div>
-  
-    </div>`
+
+    toHTML += `<div id=cFormFooter><div id="cSubmit">Submit</div></div>`
+
     toHTML += `<div id="cFootPad"></div>`
 
     $('#cApp').html(toHTML);
-
-
+    
     $('#cSubmit').hover(function() { 
 
       $(this).css('cursor','pointer') 
@@ -93,7 +88,7 @@ $(document).ready(function() {
 
       $('#cApp').append('<div id="cCover"></div><div id="cThank">Thank you!</div>')
 
-      
+
     })
 
   }) 
